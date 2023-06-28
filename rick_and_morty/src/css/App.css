@@ -1,0 +1,24 @@
+/*? ESTILOS GENERALES DE LA APP */
+
+body{
+   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);;
+}
+
+.contenedorTitle{
+   width: 100%;
+   display: flex;
+   justify-content: left;
+   background: url(../img/img1.jpg) center center no-repeat ;
+   background-size: cover;
+   height: 50vh;
+}
+.titulosPi{
+   font-family: fantasy;
+   font-size: 2.8rem;
+   padding: 0px 2rem;
+   color: rgb(9, 255, 9);
+  letter-spacing: 3px;
+}
+
+
+
