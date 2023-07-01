@@ -1,0 +1,20 @@
+
+.containerBotonesNav{
+display: flex;
+justify-content: right;  
+height: 10vh;  
+padding: 1rem 3rem;
+}
+
+.btn1{
+    text-decoration: none;
+    width: 8rem;
+    height: 6vh;
+    margin: 1rem;
+}
+.btn2{
+    text-decoration: none;
+    width: 8rem;
+    margin: 1rem;
+    height: 6vh;
+}
