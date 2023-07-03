@@ -1,5 +1,7 @@
 
 .contarinerForm{
+    background: url(../img/rickandmortyFacha.jpg)  center center no-repeat ;
+    background-size: cover;
     height: 100vh;
     width: 100%;
       display: flex;
@@ -8,24 +10,85 @@
     flex-direction: row;
 }
 .tituloForm{
-    width: 25%;
+    width: 30%;
     height: 100%;
     color: rgb(255, 255, 255);
-    font-size: 5rem;
+    font-size: 5.5rem;
     display: flex;
-     justify-content: right;
+     justify-content: flex-end;
      align-items: start;
-     padding-left: 10rem ;
+     padding-left:  10rem ;
      padding-right: 1rem;
-
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
 }
-.form{
+.tituloForm2{
+    width: 30%;
     height: 100%;
-    width: 75%;
-    background: transparent;
-    height: 50vh;
+    color: rgb(255, 255, 255);
+    font-size: 5.5rem;
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: start;
+    padding-left: 10rem ;
+    padding-right: 1rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+.tituloInvertido {
+    transform: rotate(180deg);
+}
+.form {
+    width: 40%;
+    display: flex;
     flex-direction: column;
-   
+    align-items: center;
+  }
+  .containerInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.inputBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:20vh;
+    font-size: 1.5rem;
+    background: transparent;    
+}
+.textArea{
+    width: 15rem;
+    height: 4vh;
+    border: 2px solid rgb(0, 0, 0);
+}
+.label{
+        padding: 2.5rem;
+        height: 10px;
+        font-size: 2rem;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        letter-spacing: 4px;
+}
+.containerSubmit {
+    width: 100%;
+    display: flex;
+   justify-content: center;
+    margin-top: 2rem;
+  }
+.submit{
+    border: 2px solid black;
+    width: 6rem;
+    height: 4vh;
+}
+
+.errors{
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+     color: rgb(255, 255, 255);
+     width: 100%;
 }

@@ -1,12 +1,15 @@
+import React from "react";
+import Cards from "../componentesHijos/Cards";
+import SearchBar from '../componentesHijos/SearchBar';
 
-// export default function Home({onSearch}){
+
+export default function Home(props){
  
-//     return(
-        
-//         <div>
-//             <h1>HOLAAAAAAAAAAAAAAAA SOY EL HOME </h1>
-//             <Nav/>
-//             <SearchBar onSearch= {onSearch}></SearchBar>
-//         </div>
-//     )
-// }
+    return (
+         <div className="containerHome">
+             <h1>Personajes</h1>
+             <SearchBar onSearch={props.onSearch} />
+             <Cards characters={props.characters} onClose={props.onClose}/>
+         </div>
+    )
+}

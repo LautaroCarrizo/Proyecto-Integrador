@@ -1,8 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom"
-import SearchBar from './SearchBar';
 
- export default function Nav({onSearch}){
+ export default function Nav(){
  
     return(
         <nav className="containerNav">
@@ -14,7 +13,6 @@ import SearchBar from './SearchBar';
                 <NavLink  to="/Abaout"> Abaout </NavLink>
             </button>
             </div>
-            <SearchBar onSearch={onSearch} />
         </nav>
     )
 }

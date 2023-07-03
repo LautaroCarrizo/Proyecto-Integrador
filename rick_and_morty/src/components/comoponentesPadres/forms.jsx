@@ -1,37 +1,49 @@
 import React from "react"
 import {useState} from "react"
 import Validations from "../../validations"
-export default function Forms (){
-    const [user, setUser] = useState({username:"", email:"", password:""})
-    const [erros, setError] = useState([])
 
+
+export default function Forms (login){
+
+    const [user, setUser] = useState({email:"", password:""})
+    const [erros, setError] = useState([])
+    
+    
+    
     function handleSubmit(event){
         event.preventDefault()
-        console.log("no se actualizo")
+        login.login(user)
     }
 
 function handleChange(event){
     setUser({...user, [event.target.name]: event.target.value}) //? CAMBIAMOS EL VALOR ACTUAL DEL USERNAME POR EL VALOR QUE ESCRIBE EL USUARIO
    setError(Validations({...user, [event.target.name]: event.target.value}))  //? EL OBJ QUE RETORNA VALIDARION SE LO GUARDAMOS EN EL ESTADO SETERROR
-
 }
+
+
+
+
     return(
         <div className="contarinerForm">
+            <h1 className="tituloForm2 tituloInvertido">Rick and Morty App</h1>
          <form className="form" onSubmit={handleSubmit}>
-          <div>
-           {erros.username ? (<span style={{color: "red"}}> {erros.username} </span>) : null}
-          <label>Email</label>
-          <input name="email" onChange={handleChange}  value= {user.email}type="text" placeholder="email..."></input>
+            <div className="containerInput" id="2">
+          <div className="inputBox">
+          <label className="label">Email</label>
+          <input  className="textArea" name="email" onChange={handleChange}  value= {user.email}type="text" placeholder="email..."></input>
+           {erros.username ? (<span className="errors"> {erros.username} </span>) : null}
           </div>
-          <div>
-          {erros.password ? (<span style={{color: "red"}}> {erros.password} </span>) : null}
-          <label>Password</label>
-          <input name="password" onChange={handleChange} value= {user.password} type="password" placeholder="password..."></input>
+          <div className="inputBox">
+          <label className="label">Password</label>
+          <input className="textArea" name="password" onChange={handleChange} value= {user.password} type="password" placeholder="password..."></input>
+          {erros.password ? (<span className="errors"> {erros.password} </span>) : null}
           </div>
-          <input type="submit"></input>
+          <div className="containerSubmit">
+          <input className="submit" type="submit"></input>
+          </div>
+            </div>
          </form>
-         <h1 className="tituloForm">Rick and Morty App</h1>
-
+         <h1 className="tituloForm">Rick and Morty App</h1> 
         </div>
     )
 }

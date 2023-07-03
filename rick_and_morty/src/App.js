@@ -5,20 +5,19 @@ import "./css/buscador.modules.css"
 import "./css/titulos.modules.css"
 import "./css/nav.modules.css"
 import "./css/forms.modules.css"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios"
 import Nav from './components/componentesHijos/nav';
-import Cards from './components/componentesHijos/Cards.jsx';
-import Title from './components/componentesHijos/title';
-import {Routes, Route, useLocation} from "react-router-dom"
+import {Routes, Route, useLocation, useNavigate} from "react-router-dom"
 import Details from './components/componentesHijos/detail';
 import Abaout from './components/comoponentesPadres/Abaout';
 import Forms from './components/comoponentesPadres/forms';
+import Home from './components/comoponentesPadres/home';
 
 function App() {
 
   const [characters, setCharacters] = useState([]);
-
+ 
 function onSearch(id) {
    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
       if (data.name) {
@@ -36,21 +35,32 @@ function onClose(id){
 }
 let ubi = useLocation()
 
-   return (
+const [access, setAccess] = useState(false)
+let EMAIL = "laucarrizo998@gmail.com"
+let PASSWORD = "lauti123"
+let navigate = useNavigate()
+function login(user) {
+    if (user.password === PASSWORD && user.email === EMAIL) {
+       setAccess(true);
+       navigate('/home');
+    }
+ }
+
+ useEffect(() => {
+   !access && navigate('/');
+}, [access]);
+
+   return ( 
       <div className='App'>
+                 {ubi.pathname !== "/" && (
+        <Nav  showNav={ubi.pathname !== "/"} />
+    )}
          <Routes>
-            <Route path='/' element={<Forms/>}></Route>
-            <Route path='/home' element= {<Cards characters={characters} onClose={onClose}/>} ></Route>
+            <Route path='/' element={<Forms login={login} />}></Route>
+            <Route path='/home' element= {<Home onClose={onClose} characters={characters} onSearch={onSearch}/>} ></Route>
             <Route path='/Abaout' element= {<Abaout/>}></Route>
             <Route path='/detail/:id' element= {<Details/>} ></Route>
          </Routes>
-         {ubi.pathname !== "/" && (
-      <div class="contenedorTitle">
-        <Nav onSearch={onSearch} showNav={ubi.pathname !== "/"} />
-        <h1 class="titulosPi">RICK AND MORTY APP</h1>
-        <Title />
-      </div>
-    )}
       </div>
    );
 }

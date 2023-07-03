@@ -10,7 +10,6 @@ function handleChange(event) {
 
    return (
       <div className="containerBtn containerBotonesNav ">
-         {/* <h3 className="tituloBuscarPersonajes">Buscar Personaje {":"}</h3> */}
          <div className="containerInput">
          <input type='search' className="inputBtn"  onChange={handleChange}  value={id}/>
          <button onClick={()=> {props.onSearch(id)}} className="btnBuscador">Agregar</button>
