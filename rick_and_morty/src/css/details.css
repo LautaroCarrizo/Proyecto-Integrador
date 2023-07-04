@@ -1,0 +1,65 @@
+.conteinerJsxDetails{
+background: url(../img/img5.jpg) no-repeat center center;
+background-size: cover;
+min-height: 100vh;
+width: 100%;
+}
+
+ .conteinerJsxDetails::before {
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background: #0e0d0d;
+    opacity: 0.6;
+  }
+
+.conteinerJsxDetails h1{
+    margin: 0;
+    font-size: 4rem;
+   display: flex;
+   justify-content: center;
+   color: rgb(255, 255, 255);
+   font-family: cursive;
+
+}
+.containerData{
+    display: flex;
+    width: 100%; 
+}
+.containerH3{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    background: #1b2122;
+    opacity: 0.6;
+    padding: 2rem;
+    margin: 5rem;
+    border-radius: 50px;
+}
+.containerH3 h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-family: cursive;
+    letter-spacing: 5px;
+    color: rgb(255, 255, 255);
+}
+.containerImg{
+width: 50%;
+display: flex;
+justify-content: flex-start;
+height: 80vh;
+align-items: center;
+
+}
+.containerImg img{
+    height: 400px;
+    width: 600px;
+    border-radius: 50px;
+    border: 5px solid black;
+
+}

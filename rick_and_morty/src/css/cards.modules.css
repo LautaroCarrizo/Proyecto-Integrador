@@ -9,15 +9,25 @@
   }
   
   .card {
-    background-color: #f7f7f7;
+    width: 17rem;
+    background-color: #ffd4d4;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin-bottom: 1.5rem;
+    
   }
-  
+  .card:hover {
+    background-color: #70ff9b;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+    border: 1px solid rgb(12, 12, 12);
+    transition: all 1s;
+    
+  }
   .card img {
     height: 200px;
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -25,15 +35,21 @@
   .containerName {
     font-size: 1.2rem;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 2px;
+    
   }
   
   .titP {
     font-size: 1rem;
     text-decoration: none;
+    color: rgb(1, 9, 78);
   }
   
   .containerPs {
+    border-top: 2px solid black;
     padding: 5px 20px;
     font-size: 1rem;
   }
@@ -42,6 +58,6 @@
     display: flex;
     justify-content: left;
     background: black;
-    color: white;
+    color: rgb(255, 255, 255);
   }
   
