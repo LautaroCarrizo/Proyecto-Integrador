@@ -1,7 +1,7 @@
 import React from "react"
 import {useState} from "react"
 import Validations from "../../validations"
-
+import "../../css/forms.modules.css"
 
 export default function Forms (login){
 

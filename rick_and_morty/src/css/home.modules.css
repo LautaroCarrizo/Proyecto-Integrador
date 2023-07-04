@@ -1,0 +1,58 @@
+
+.containerHome{
+    background: url(../img/mortyloco.jpg) no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.containerTit {
+    height: 20vh;
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .containerInputHome{
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+.tituloSearch{
+font-size: 2rem;
+font-family:Verdana, Geneva, Tahoma, sans-serif ;
+padding: 10px;
+font-size: 1.2rem;
+color: #ffffff;
+margin-bottom: 1rem;
+}
+
+.containerInputHome{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ height: 10vh;
+}
+
+.inputBtn{
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  margin: 10px;
+  border: 2px solid black;
+}
+.btnBuscador{
+margin: 10px;
+width: 7rem;
+height: 2.5rem;
+color: black;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+background-color: rgb(48, 255, 172);
+border-radius: 10px;
+border: 2px solid black;
+}

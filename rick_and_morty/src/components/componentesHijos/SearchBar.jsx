@@ -9,10 +9,11 @@ function handleChange(event) {
  }
 
    return (
-      <div className="containerBtn containerBotonesNav ">
-         <div className="containerInput">
+      <div>
+         <div className="containerInputHome">
          <input type='search' className="inputBtn"  onChange={handleChange}  value={id}/>
          <button onClick={()=> {props.onSearch(id)}} className="btnBuscador">Agregar</button>
+         <button onClick={()=> {props.handleRandomId()}} className="btnBuscador">Agregar Random</button>
          </div>
       </div>
    );

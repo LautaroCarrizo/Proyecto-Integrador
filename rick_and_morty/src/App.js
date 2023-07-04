@@ -1,10 +1,4 @@
 import './css/App.css';
-import "./css/cards.modules.css"
-import "./css/mixin.modules.css"
-import "./css/buscador.modules.css"
-import "./css/titulos.modules.css"
-import "./css/nav.modules.css"
-import "./css/forms.modules.css"
 import { useState, useEffect } from 'react';
 import axios from "axios"
 import Nav from './components/componentesHijos/nav';
@@ -26,6 +20,22 @@ function onSearch(id) {
          window.alert('¡No hay personajes con este ID!');
       }
    });
+}
+
+function onSearchRandom(randomId) {
+   axios(`https://rickandmortyapi.com/api/character/${randomId}`).then(({ data }) => {
+      if (data.name) {
+         setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+         window.alert('¡No hay personajes con este ID!');
+      }
+   });
+}
+
+function handleRandomId(){
+   let calculo = Math.random() * 100
+   let randomId = Math.floor(calculo % 826)
+   onSearchRandom(randomId)
 }
 
 function onClose(id){
@@ -57,7 +67,7 @@ function login(user) {
     )}
          <Routes>
             <Route path='/' element={<Forms login={login} />}></Route>
-            <Route path='/home' element= {<Home onClose={onClose} characters={characters} onSearch={onSearch}/>} ></Route>
+            <Route path='/home' element= {<Home onClose={onClose} characters={characters} handleRandomId={handleRandomId} onSearch={onSearch}/>} ></Route>
             <Route path='/Abaout' element= {<Abaout/>}></Route>
             <Route path='/detail/:id' element= {<Details/>} ></Route>
          </Routes>
