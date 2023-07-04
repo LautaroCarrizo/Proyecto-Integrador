@@ -1,8 +1,13 @@
 import React from "react";
-import {NavLink} from "react-router-dom"
+import {NavLink, useNavigate} from "react-router-dom"
 import "../../css/nav.modules.css"
- export default function Nav(){
- 
+ export default function Nav(props){
+
+    const navigate = useNavigate()
+    function handleLogOut (){
+        props.setAccess(false)
+        navigate("/")
+     }
     return(
         <nav className="containerNav">
             <h1 className="tituloNav">Rick and Morty App</h1>
@@ -13,8 +18,8 @@ import "../../css/nav.modules.css"
             <button className= "btn1">
                 <NavLink style={{ textDecoration: "none" }} to="/Abaout"> Abaout </NavLink>
             </button>
-            <button className= "btn1">
-                <NavLink style={{ textDecoration: "none" }} to="/"> LogOut </NavLink>
+            <button onClick={handleLogOut}  style={{ textDecoration: "none" }} className= "btn1">
+               LogOut 
             </button>
             </div>
         </nav>

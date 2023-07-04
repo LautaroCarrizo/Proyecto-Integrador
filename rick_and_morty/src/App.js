@@ -63,7 +63,7 @@ function login(user) {
    return ( 
       <div className='App'>
                  {ubi.pathname !== "/" && (
-        <Nav  showNav={ubi.pathname !== "/"} />
+        <Nav access={access} setAccess={setAccess} showNav={ubi.pathname !== "/"} />
     )}
          <Routes>
             <Route path='/' element={<Forms login={login} />}></Route>
