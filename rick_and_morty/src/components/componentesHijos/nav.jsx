@@ -18,6 +18,9 @@ import "../../css/nav.modules.css"
             <button className= "btn1">
                 <NavLink style={{ textDecoration: "none" }} to="/Abaout"> Abaout </NavLink>
             </button>
+            <button className= "btn1">
+                <NavLink style={{ textDecoration: "none" }} to="/Favorites"> Favorites </NavLink>
+            </button>
             <button onClick={handleLogOut}  style={{ textDecoration: "none" }} className= "btn1">
                LogOut 
             </button>

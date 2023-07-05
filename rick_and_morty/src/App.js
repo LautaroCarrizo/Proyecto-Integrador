@@ -7,6 +7,7 @@ import Details from './components/componentesHijos/detail';
 import Abaout from './components/comoponentesPadres/Abaout';
 import Forms from './components/comoponentesPadres/forms';
 import Home from './components/comoponentesPadres/home';
+import Favorites from './components/comoponentesPadres/favorites';
 
 function App() {
 
@@ -70,6 +71,7 @@ function login(user) {
             <Route path='/home' element= {<Home onClose={onClose} characters={characters} handleRandomId={handleRandomId} onSearch={onSearch}/>} ></Route>
             <Route path='/Abaout' element= {<Abaout/>}></Route>
             <Route path='/detail/:id' element= {<Details/>} ></Route>
+            <Route path='/favorites' element= {<Favorites/>}></Route>
          </Routes>
       </div>
    );
