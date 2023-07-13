@@ -3,21 +3,21 @@ import "../../css/cards.modules.css"
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import { addFav, removeFav } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+
 
 
 export function Card(props) {
 
  const [isFav, setFav] = useState(false)
- const dispatch = useDispatch();
+
 
 function handleFavorite(){
  if(isFav === true){
    setFav(false)
-   dispatch(removeFav(props.id))
+   props.removeFav(props.id)
  } else {
    setFav(true)
-   dispatch(addFav(props))
+   props.addFav(props)
  }
 }
 
@@ -27,7 +27,7 @@ useEffect(() => {
          setFav(true);
       }
    });
-}, [props.myFavorites, props.id]);
+}, [props.myFavorites]);
 
    return (
        <div className="card">

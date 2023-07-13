@@ -8,13 +8,13 @@ import Abaout from './components/comoponentesPadres/Abaout';
 import Forms from './components/comoponentesPadres/forms';
 import Home from './components/comoponentesPadres/home';
 import Favorites from './components/comoponentesPadres/favorites';
-
+import Footer from './components/componentesHijos/footer';
 function App() {
 
   const [characters, setCharacters] = useState([]);
  
 function onSearch(id) {
-   axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+   axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
       if (data.name) {
          setCharacters((oldChars) => [...oldChars, data]);
       } else {
@@ -73,6 +73,10 @@ function login(user) {
             <Route path='/detail/:id' element= {<Details/>} ></Route>
             <Route path='/favorites' element= {<Favorites/>}></Route>
          </Routes>
+
+         {ubi.pathname !== "/" && (
+           <Footer/>
+    )}
       </div>
    );
 }

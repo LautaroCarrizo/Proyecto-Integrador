@@ -12,6 +12,7 @@ export default function Forms (login){
     
     function handleSubmit(event){
         event.preventDefault()
+
         login.login(user)
     }
 
@@ -30,7 +31,7 @@ function handleChange(event){
             <div className="containerInput" id="2">
           <div className="inputBox">
           <label className="label">Email</label>
-          <input  className="textArea" name="email" onChange={handleChange}  value= {user.email}type="text" placeholder="email..."></input>
+          <input  className="textArea" name="email" onChange={handleChange}  value= {user.email} type="text" placeholder="email..."></input>
            {erros.username ? (<span className="errors"> {erros.username} </span>) : null}
           </div>
           <div className="inputBox">

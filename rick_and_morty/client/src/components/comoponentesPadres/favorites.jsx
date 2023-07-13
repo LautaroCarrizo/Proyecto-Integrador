@@ -8,7 +8,6 @@ export  function Favorites(props){
         <div>
             {props.myFavorites.map((element) => (  
            <Card key={element.id}
-           onClose={props.onClose}
            id= {element.id}
            name={element.name}
            status={element.status}
