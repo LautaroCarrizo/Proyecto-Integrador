@@ -1,32 +1,54 @@
+import { ADD_FAV, REMOVE_FAV,FILTER, ORDER,CLEAR  } from "./actionsTypes";
 
-import { ADD_FAV, REMOVE_FAV } from "./actionsTypes"
 
-const InitialState = {
-  myFavorites : []
-}
+const initialState = {
+    myFavorites: [],
+    allCharacters: [],
+};
 
- const reducer = (state = InitialState, actions) => {
-  
-    switch(actions.type){
-      case ADD_FAV :
-        return {
-            ...state, 
-            myFavorites:[...state.myFavorites, actions.payload]
-        }
+const reducer  = (state= initialState, action) => {
 
+    switch (action.type) {
+        case ADD_FAV: 
+            return { 
+                ...state, 
+                myFavorites:  action.payload,
+                allCharacters: action.payload
+                    };
         case REMOVE_FAV:
-            let idDef = parseInt(actions.payload)
+            return {
+                ...state, 
+                myFavorites: action.payload,
+                allCharacters: action.payload
+                    };
+        case FILTER:
+            return {
+                ...state, 
+                myFavorites: state.allCharacters.filter((char) => char.gender == action.payload)
+            };
+        case ORDER:
+                const allCharacters2 = [...state.allCharacters]
             return {
                 ...state,
-                myFavorites:[...state.myFavorites.filter((elem) => elem.id !== idDef)  ] 
-            }
-
-
-
-     default: return {...state}   
+                myFavorites: 
+                action.payload === "A" 
+                ? allCharacters2.sort((a, b) => a.id - b.id)
+                : allCharacters2.sort((a, b) => b.id - a.id)
+                };
+                case CLEAR:
+                    return {
+                        ...state,
+                        myFavorites: state.allCharacters
+                        };
+        default:
+            return {...state};
     }
+};
 
-
-
-}
-export default reducer
+export default reducer ;
+// case ADD_FAV: 
+//   return {
+//     ...state, 
+//     myFavorites: [...state.myFavorites, action.payload],
+//     allCharacters: [...state.allCharacters, action.payload]
+//   };

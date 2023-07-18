@@ -9,6 +9,8 @@ import Forms from './components/comoponentesPadres/forms';
 import Home from './components/comoponentesPadres/home';
 import Favorites from './components/comoponentesPadres/favorites';
 import Footer from './components/componentesHijos/footer';
+//import users from '../../server/src/utils/users';
+
 function App() {
 
   const [characters, setCharacters] = useState([]);
@@ -44,22 +46,26 @@ function onClose(id){
     characters.filter((elem) => elem.id !== Number(id))
   );
 }
+//? FLUJO
+/// FRONT => ACTION PETICION DISPATCH ==> BACK => CONTROLLER DESECTRURAR DATA => DEVUELVE POR MEDIO DE ROUTES A ESA URL, SE RESUELVE LA PROMISE ==> MANDA AL REDUCER ACTUALIZA EL ESTADO =>> ACUTALIZA LAS STORE.
 let ubi = useLocation()
 
 const [access, setAccess] = useState(false)
-let EMAIL = "laucarrizo998@gmail.com"
-let PASSWORD = "lauti123"
 let navigate = useNavigate()
-function login(user) {
-    if (user.password === PASSWORD && user.email === EMAIL) {
-       setAccess(true);
-       navigate('/home');
-    }
- }
+function login(userData) {
+   const { email, password } = userData;
+   console.log(userData)
+   const URL = 'http://localhost:3001/rickandmorty/login/';
+   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(access);
+      access && navigate('/home');
+   });
+}
 
- useEffect(() => {
+useEffect(() => {
    !access && navigate('/');
-}, [access]);
+}, [access, navigate]);
 
    return ( 
       <div className='App'>

@@ -1,19 +1,24 @@
-const http = require("http");
-const getCharByid = require("./controllers/getCharByid")
+const express = require("express");
+const routes = require("./routes/index");
 
+const server = express();
+const PORT = 3001;
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header(
+     'Access-Control-Allow-Headers',
+     'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header(
+     'Access-Control-Allow-Methods',
+     'GET, POST, OPTIONS, PUT, DELETE'
+  );
+  next();
+});
+server.use(express.json());
+server.use("/rickandmorty", routes);
 
-http
-  .createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    let URL = req.url;
-    if (URL.includes("/rickandmorty/character")) {
-      let id = URL.split("/").pop();
-      getCharByid(res, id)
-    } else throw new Error("Not found 404");
-  })
-  .listen(3001, "localhost");
-
-
-
-  
-  
+server.listen(PORT, () => {
+  console.log("Server raised in port: " + PORT);
+});
