@@ -47,14 +47,13 @@ function onClose(id){
   );
 }
 //? FLUJO
-/// FRONT => ACTION PETICION DISPATCH ==> BACK => CONTROLLER DESECTRURAR DATA => DEVUELVE POR MEDIO DE ROUTES A ESA URL, SE RESUELVE LA PROMISE ==> MANDA AL REDUCER ACTUALIZA EL ESTADO =>> ACUTALIZA LAS STORE.
+///! FRONT => ACTION PETICION DISPATCH ==> BACK => CONTROLLER DESECTRURAR DATA => DEVUELVE POR MEDIO DE ROUTES A ESA URL, SE RESUELVE LA PROMISE ==> MANDA AL REDUCER ACTUALIZA EL ESTADO =>> ACUTALIZA LAS STORE.
 let ubi = useLocation()
 
 const [access, setAccess] = useState(false)
 let navigate = useNavigate()
 function login(userData) {
    const { email, password } = userData;
-   console.log(userData)
    const URL = 'http://localhost:3001/rickandmorty/login/';
    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
       const { access } = data;

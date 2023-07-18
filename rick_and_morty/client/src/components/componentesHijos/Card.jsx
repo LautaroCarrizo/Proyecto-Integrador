@@ -40,6 +40,10 @@ export function Card({
       });
     }
   }
+ function handleCardClose() { //? LOGRAR QUE EL ONCLOSE FUNCIONE EN EL COMPONENTE CARD SIN REPETIR ACTIONS
+    onClose(id);
+    removeFav(id);
+  }
 
   useEffect(() => {
    if (myFavorites) {
@@ -58,7 +62,7 @@ export function Card({
       ) : (
         <button onClick={handleFavorite}>🤍</button>
       )}
-      <button onClick={() => onClose(id)} className="button">
+      <button onClick={handleCardClose.bind(this)} className="button">
         X
       </button>
       <div className="containerName">

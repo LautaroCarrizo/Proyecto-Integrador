@@ -1,9 +1,8 @@
-import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, CLEAR } from "./actionsTypes";
+import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, CLEAR, CLOSEFAV } from "./actionsTypes";
 import axios from "axios";
 
 // ACTION | addFav
 export const addFav = (character) => {
-   console.log(character)
    const endpoint = 'http://localhost:3001/rickandmorty/fav';
    return (dispatch) => {
       axios.post(endpoint, {character}).then(({ data }) => { //?PONEMOS LA RUTA, Y MANDOS LA INFO "CHARACTER ENTRE CORCHETES"
@@ -20,6 +19,7 @@ export const removeFav = (id) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
     return (dispatch) => {
        axios.delete(endpoint).then(({ data }) => {
+         console.log(data)
           return dispatch({
              type: REMOVE_FAV,
              payload: data,

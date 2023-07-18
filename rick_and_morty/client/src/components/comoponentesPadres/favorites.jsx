@@ -9,7 +9,6 @@ import { useState } from "react";
 const Favorites = () => {
 
     let myFavorites = useSelector((state) => state.myFavorites);
-    console.log(myFavorites)
     const dispatch = useDispatch();
     const [aux, setAux] = useState({ order: "null", filter: "null" })
 
@@ -32,7 +31,7 @@ const Favorites = () => {
         setAux({ order: "null", filter: "null" })
         dispatch(clearFilters())
     }
-    console.log(myFavorites)
+
     return(
         <div>
             <div>
@@ -63,6 +62,7 @@ const Favorites = () => {
                     gender={fav.gender} 
                     origin={fav.origin.name} 
                     image={fav.image} 
+                   // onClose={fav.handleCardClose} ARREGLAR Y HACER Q EL ONCLOSE FNUCIONE EN EL COMPONENTE FAV
                     />;
                 })}
             </div>
