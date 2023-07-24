@@ -22,24 +22,24 @@ function App() {
       const { data } = res;
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
       }
     } catch (error) {
-      throw new Error(error.message);
+      throw new Error("¡No hay personajes con este ID!");
     }
   }
 
-  function onSearchRandom(randomId) {
-    axios(`https://rickandmortyapi.com/api/character/${randomId}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+  async function onSearchRandom(randomId) {
+    try {
+      const res = await axios(
+        `https://rickandmortyapi.com/api/character/${randomId}`
+      );
+      const { data } = res;
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
       }
-    );
+    } catch (error) {
+      throw new Error("¡No hay personajes con este ID!");
+    }
   }
 
   function handleRandomId() {

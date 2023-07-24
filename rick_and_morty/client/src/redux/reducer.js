@@ -46,9 +46,4 @@ const reducer  = (state= initialState, action) => {
 };
 
 export default reducer ;
-// case ADD_FAV: 
-//   return {
-//     ...state, 
-//     myFavorites: [...state.myFavorites, action.payload],
-//     allCharacters: [...state.allCharacters, action.payload]
-//   };
+

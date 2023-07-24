@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, CLEAR, CLOSEFAV } from "./actionsTypes";
+import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, CLEAR} from "./actionsTypes";
 import axios from "axios";
 
 // ACTION | addFav

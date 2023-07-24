@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../../css/cards.modules.css";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
@@ -40,10 +40,6 @@ export function Card({
       });
     }
   }
- function handleCardClose() { //? LOGRAR QUE EL ONCLOSE FUNCIONE EN EL COMPONENTE CARD SIN REPETIR ACTIONS
-    onClose(id);
-    removeFav(id);
-  }
 
   useEffect(() => {
    if (myFavorites) {
@@ -54,7 +50,7 @@ export function Card({
      });
    }
  }, [myFavorites, id]);
-
+ let location = useLocation()
   return (
     <div className="card">
       {isFav ? (
@@ -62,9 +58,11 @@ export function Card({
       ) : (
         <button onClick={handleFavorite}>🤍</button>
       )}
-      <button onClick={handleCardClose.bind(this)} className="button">
+         {location.pathname !== "/Favorites" && (
+      <button className="button">
         X
       </button>
+    )}
       <div className="containerName">
         <Link style={{ textDecoration: "none" }} to={`/detail/${id}`}>
           <h2 className="titP"> {name} </h2>

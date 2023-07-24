@@ -12,7 +12,6 @@ export default function Forms (login){
     
     function handleSubmit(event){
         event.preventDefault()
-
         login.login(user)
     }
 
